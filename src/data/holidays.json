@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Tết Nguyên Đán",
+    "type": "lunar",
+    "date": "1-1",
+    "description": "Năm mới Âm lịch"
+  },
+  {
+    "name": "Tết Nguyên Tiêu",
+    "type": "lunar",
+    "date": "15-1",
+    "description": "Rằm tháng Giêng"
+  },
+  {
+    "name": "Giỗ Tổ Hùng Vương",
+    "type": "lunar",
+    "date": "10-3",
+    "description": "Ngày Giỗ Tổ"
+  },
+  {
+    "name": "Tết Đoan Ngọ",
+    "type": "lunar",
+    "date": "5-5",
+    "description": "Tết đoan Ngọ"
+  },
+  {
+    "name": "Vu Lan",
+    "type": "lunar",
+    "date": "15-7",
+    "description": "Lễ Vu Lan Báo Hiếu"
+  },
+  {
+    "name": "Tết Trung Thu",
+    "type": "lunar",
+    "date": "15-8",
+    "description": "Tết Thiếu Nhi"
+  },
+  {
+    "name": "Tết Dương Lịch",
+    "type": "solar",
+    "date": "1-1",
+    "description": "Năm mới Dương lịch"
+  },
+  {
+    "name": "Ngày Giải Phóng Miền Nam",
+    "type": "solar",
+    "date": "30-4",
+    "description": "30/4"
+  },
+  {
+    "name": "Quốc Tế Lao Động",
+    "type": "solar",
+    "date": "1-5",
+    "description": "Ngày 1/5"
+  },
+  {
+    "name": "Quốc Khánh",
+    "type": "solar",
+    "date": "2-9",
+    "description": "Ngày Độc Lập 2/9"
+  }
+]
