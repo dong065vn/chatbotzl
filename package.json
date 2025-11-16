@@ -1,7 +1,7 @@
 {
-  "name": "zalo-lunar-calendar-bot",
+  "name": "telegram-lunar-calendar-bot",
   "version": "1.0.0",
-  "description": "Zalo Chatbot for Vietnamese Lunar Calendar lookup (MVP - Stateless)",
+  "description": "Telegram Bot for Vietnamese Lunar Calendar lookup (MVP - Stateless)",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
@@ -10,7 +10,8 @@
     "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "keywords": [
-    "zalo",
+    "telegram",
+    "bot",
     "chatbot",
     "lunar-calendar",
     "vietnamese",
@@ -20,16 +21,13 @@
   "license": "MIT",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
-    "axios": "^1.7.9",
     "canvas": "^2.11.2",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "form-data": "^4.0.1",
     "lunar-javascript": "^1.6.13",
-    "node-cache": "^5.1.2"
+    "node-cache": "^5.1.2",
+    "telegraf": "^4.16.3"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",

@@ -1,56 +1,29 @@
-import express, { Request, Response } from 'express';
-import { config } from './config';
-import { zaloController } from './controllers/zalo.controller';
+import './config'; // Load environment variables
+import { telegramService } from './services/4_telegram.service';
+import { telegramController } from './controllers/telegram.controller';
 
-const app = express();
+async function main() {
+  console.log('🚀 Starting Telegram Lunar Calendar Bot...');
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+  // Get bot instance
+  const bot = telegramService.getBot();
 
-// Health check endpoint
-app.get('/', (req: Request, res: Response) => {
-  res.json({
-    status: 'ok',
-    service: 'Zalo Lunar Calendar Bot',
-    version: '1.0.0',
-    timestamp: new Date().toISOString(),
-  });
-});
+  // Register command handlers
+  bot.command('start', (ctx) => telegramController.handleStart(ctx));
+  bot.command('help', (ctx) => telegramController.handleHelp(ctx));
 
-app.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'healthy' });
-});
+  // Register text message handler
+  bot.on('text', (ctx) => telegramController.handleMessage(ctx));
 
-// Zalo webhook endpoint
-app.post('/zalo', (req: Request, res: Response) => {
-  zaloController.handleWebhook(req, res);
-});
+  // Launch bot
+  await telegramService.launch();
 
-// Error handling middleware
-app.use((err: Error, req: Request, res: Response, next: Function) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({ error: 'Internal server error' });
-});
+  console.log('✅ Bot is running!');
+  console.log('💬 Send messages to your bot on Telegram to test.');
+}
 
-// Start server
-const PORT = config.port;
-
-app.listen(PORT, () => {
-  console.log('🚀 Zalo Lunar Calendar Bot started!');
-  console.log(`📍 Server running on port ${PORT}`);
-  console.log(`🌐 Environment: ${config.nodeEnv}`);
-  console.log(`🔗 Webhook URL: http://localhost:${PORT}/zalo`);
-  console.log('✅ Ready to receive Zalo events!');
-});
-
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  console.log('SIGTERM signal received: closing HTTP server');
-  process.exit(0);
-});
-
-process.on('SIGINT', () => {
-  console.log('SIGINT signal received: closing HTTP server');
-  process.exit(0);
+// Start the bot
+main().catch((error) => {
+  console.error('❌ Failed to start bot:', error);
+  process.exit(1);
 });

@@ -4,13 +4,10 @@ dotenv.config();
 
 interface Config {
   // Server
-  port: number;
   nodeEnv: string;
 
-  // Zalo OA
-  zaloOaId: string;
-  zaloAccessToken: string;
-  zaloAppSecret: string;
+  // Telegram Bot
+  telegramBotToken: string;
 
   // Google Gemini
   geminiApiKey: string;
@@ -30,13 +27,10 @@ function getEnvVar(key: string, defaultValue?: string): string {
 
 export const config: Config = {
   // Server
-  port: parseInt(getEnvVar('PORT', '3000'), 10),
   nodeEnv: getEnvVar('NODE_ENV', 'development'),
 
-  // Zalo OA
-  zaloOaId: getEnvVar('ZALO_OA_ID'),
-  zaloAccessToken: getEnvVar('ZALO_ACCESS_TOKEN'),
-  zaloAppSecret: getEnvVar('ZALO_APP_SECRET'),
+  // Telegram Bot
+  telegramBotToken: getEnvVar('TELEGRAM_BOT_TOKEN'),
 
   // Google Gemini
   geminiApiKey: getEnvVar('GEMINI_API_KEY'),
